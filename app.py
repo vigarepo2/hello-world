@@ -1,8 +1,10 @@
-# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
-v: 0
-micros:
-  - name: python-app
-    src: .
-    engine: python3.9
-    primary: true
-    run: python3 app.py
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Hello, this is a simple Flask app!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
